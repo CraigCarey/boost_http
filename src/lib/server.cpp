@@ -18,10 +18,7 @@ namespace http
 			// provided all registration for the specified signal is made through Asio
 			signals_.add(SIGINT);
 			signals_.add(SIGTERM);
-#if defined(SIGQUIT)
 			signals_.add(SIGQUIT);
-#endif // defined(SIGQUIT)
-
 			do_await_stop();
 
 			// Open the acceptor with the option to reuse the address (i.e. SO_REUSEADDR)

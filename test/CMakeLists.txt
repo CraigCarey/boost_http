@@ -28,4 +28,11 @@ target_link_libraries(${PROJECT_UNIT_TESTS_NAME} ${Boost_LIBRARIES})
 target_link_libraries(${PROJECT_UNIT_TESTS_NAME} ${CMAKE_THREAD_LIBS_INIT})
 
 enable_testing()
-add_test(DemoTest ${PROJECT_UNIT_TESTS_NAME})
+add_test(HttpTest ${PROJECT_UNIT_TESTS_NAME})
+
+# Run tests every time
+add_custom_target(
+        run_tests
+        ALL
+        COMMAND ${CMAKE_CTEST_COMMAND} -C $<CONFIGURATION> -R "^${UNIT_TEST}$" --output-on-failures
+)

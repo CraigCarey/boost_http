@@ -11,13 +11,11 @@ namespace http
 {
 	namespace server
 	{
-
-		// The top-level class of the HTTP server.
 		class server
 		{
 		public:
+			// Delete copy & copy-assignment constructors
 			server(const server &) = delete;
-
 			server &operator=(const server &) = delete;
 
 			// Construct the server to listen on the specified TCP address and port, and
@@ -53,6 +51,5 @@ namespace http
 			// The handler for all incoming requests
 			request_handler request_handler_;
 		};
-
 	}
 }
